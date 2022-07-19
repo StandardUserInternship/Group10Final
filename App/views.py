@@ -1,10 +1,11 @@
-from flask import Flask, forms, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
+from app import app
 
 
 
-app = Flask(__name__)
+# app = Flask(__name__)
 # change to name of your database; add path if necessary
 db_name = 'sockmarket.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'squlite:///' + db_name
