@@ -4,7 +4,7 @@ from flask import Flask
 
 app = Flask(__name__, instance_relative_config=True)
 
-from App.app import views
+from app import views
 
 # load the config app
 
