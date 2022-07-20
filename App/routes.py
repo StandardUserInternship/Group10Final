@@ -1,14 +1,19 @@
-# from flask import render_template
+from flask import render_template
+
+
 from app import app
-from flask import Flask
+
 
 
 
 @app.route('/')
+@app.route('/index')
 
-def home():
+
+def index():
+    user={'username': 'python'}
+    return render_template('index.html, title="Home', user=user)
     
-    return ' Welcome Group10!'
 
 
 
