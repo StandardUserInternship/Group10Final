@@ -8,3 +8,7 @@ from app import views
 # load the config app
 
 app.config.from_object('config')
+from flask_login import LoginManager
+app = Flask(__name__)
+
+login=LoginManager
