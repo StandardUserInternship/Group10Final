@@ -26,16 +26,14 @@ def testdb():
         error_text= "<p>The error:<br>" + str(e) + "</p>"
         hed= '<h1>You are welcome!.</h1>'
         return hed + error_text
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField 
-from wtforms.validators import DataRequired
 
-class LoginForm(FlaskForm):
-    username= StringField('Username', validators=[DeprecationWarning()])
-    password= PasswordField('password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
 
+
+    
 
