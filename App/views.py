@@ -14,16 +14,16 @@ app.config['SQLALCHEMY_TRACK_MODIFICATION'] = True
 db=SQLAlchemy(app)
 
 @app.route('/')
-def testdb():
+def logindb():
 
 
     try:
 
 
         db.session.query(text('1')).from_statement(text('SELECT 1')).all
-    except Exception as e:
+    except Exception as p:
 
-        error_text= "<p>The error:<br>" + str(e) + "</p>"
+        error_text= "<p>The error:<br>" + str(p) + "</p>"
         hed= '<h1>You are welcome!.</h1>'
         return hed + error_text
 
@@ -31,6 +31,7 @@ def testdb():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
 
