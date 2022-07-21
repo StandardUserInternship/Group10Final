@@ -12,8 +12,11 @@ from app import app
 
 def index():
     user={'username': 'python'}
-    return render_template('index.html, title="Home', user=user)
+    return render_template('index.html', title="Home", user=user)
     
+@app.route('/content')
+def content():
+    return render_template('content.html')
 
 
 
