@@ -6,6 +6,6 @@ app = Flask(__name__)
 def index():
     return render_template('content.html')
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 
 #title="Home", user=user
