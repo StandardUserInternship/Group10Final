@@ -1,22 +1,22 @@
-from flask import render_template
+# from flask import render_template
 
 
-from app import app
+# from app import app
 
 
 
 
-@app.route('/')
-@app.route('/index')
+# @app.route('/')
+# @app.route('/index')
 
 
-def index():
-    user={'username': 'python'}
-    return render_template('index.html', title="Home", user=user)
+# def index():
+#     user={'username': 'python'}
+#     return render_template('index.html', title="Home", user=user)
     
-@app.route('/content')
-def content():
-    return render_template('content.html')
+# @app.route('/content')
+# def content():
+#     return render_template('content.html')
 
 
 
