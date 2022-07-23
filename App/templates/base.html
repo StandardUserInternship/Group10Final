@@ -1,5 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Group10Final</title>
+        {% else %}
+        <title>Welcome to Group10Final</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+        Group10Final
+        <!-- <a href="{{ url_for('index') }}">Home</a> -->
+        <a href="{{/index}}">Home</a>
+        <!-- <a href="{{ url_for('/login') }}">Login</a> -->
+        <a href="{{/login}}">Login</a>
+        <!-- <a href="{{ url_for('/content' }}">Content</a> -->
+        <a href="{{/content}}">Content</a>
+    </div>
+    <hr>
+    {% block content %}{% endblock %}
+    </body>
+</html>
+
 <div>
-    Group10Final
+    <!-- Group10Final
     <a href="/index">Home</a>
-    <a herf="/login">login</a>
+    <a href="/login">login</a>
 </div>
+<hr>
+{% block content %}{% endblock %} -->
