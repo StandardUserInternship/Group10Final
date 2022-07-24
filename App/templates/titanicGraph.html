@@ -1,7 +1,4 @@
-<!-- This is a test base for the graph until the page can be opened-->
-<!-- This a bar graph example-->
 <canvas id="myChart" width="400" height="400"></canvas>
-<!-- Maybe add a JQuery for this program ha ha ha-->
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -12,8 +9,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position:fixed;
-    top:0;left:0;width:100%;height:60px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light edit hover">
+    <style>
+        .edit{
+            position:fixed;
+            top:0;left:0;
+            width:100%;
+            height:60px;
+        }
+        .hover{
+        background-color:rgba(100,100,100,0); 
+        opacity:0;
+        }
+        .hover:hover{
+        background-color:rgba(100,100,100,0); 
+        opacity:100;
+        }
+    </style>
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Group 10 Final Project</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,11 +39,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Logout</a>
               </li>
-              <!-- Drop down menu-->
               <li class="nav-item dropdown">
-                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Link
-                </a> -->
                 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Graphs
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -50,18 +58,41 @@
 
           </div>
         </div>
-      </nav>
-      <script>
-        function loadDoc() {
-            // var xhttp = new XMLHttpRequest();
-            // xhttp.onreadystatechange = function() {
-            //     if (this.readyState == 4 && this.status == 200) {
-            //     document.getElementById("demo").innerHTML =
-            //     this.responseText;
-            //     }
-            // };
-            // xhttp.open("GET", "static/testing.txt", true);
-            // xhttp.send();
-        }
-      </script>
+      </nav> 
 </body>
+<script style = "position:fixed;bottom:500;left:0;width:100%;height:500px;">
+    const ctx = document.getElementById("myChart").getContext("2d");
+        scatterPlot();
+        function scatterPlot(){
+        const myChart = new Chart(ctx, {
+            type: "scatter",
+            data: {
+                datasets: [{
+                    label: 'Scatter Dataset',
+                    data: [{
+                    x: -10,
+                    y: 0
+                    }, {
+                    x: 0,
+                    y: 10
+                    }, {
+                    x: 10,
+                    y: 5
+                    }, {
+                    x: 0.5,
+                    y: 5.5
+                    }],
+                backgroundColor: 'rgb(255, 99, 132)'
+                }],
+            },
+            options:{
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    }
+                }
+            }
+        })
+    }
+</script>
