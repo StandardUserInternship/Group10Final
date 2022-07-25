@@ -28,6 +28,10 @@ def titanicGraph():
 def monthGraph():
     return render_template("monthGraph.html")
 
+@app.route('/testing')
+def testing():
+    return render_template("testing.html")
+
 
     
 
