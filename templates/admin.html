@@ -1,0 +1,16 @@
+{% block content %}
+
+    <h1>Admin Area</h1>
+    <p>Do some admin stuff and whatnot...</p>
+    <form action="" method="post">
+        {{form.hidden_tag()}}
+        <p>
+            {{form.user_id.label}}<br>
+            {{form.user_id(size=32)}}<br>
+            {% for error in form.user_id.errors %}
+            <span style="color: red">[{{error}}]</span>
+            {% endfor %}
+        </p>
+    </form>
+
+{% endblock %}

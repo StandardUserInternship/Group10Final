@@ -1,4 +1,5 @@
 from datetime import timezone
+from logging import exception
 from flask import Flask
 from flask import render_template, url_for, request, redirect, flash
 import flask_login
@@ -85,6 +86,29 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+class DeletionForm(FlaskForm):
+    user_id = StringField('User ID.')
+    submit = SubmitField('Update DB.')
+
+@app.route('/admin', methods=['GET', 'POST'])
+@login_required
+def admin():
+    form = DeletionForm()
+    if id == 1:
+        user_id = ''
+        user_to_delete = user_id
+        user_to_delete = User.query.get(id=form.user_id.data)
+        name = None
+    try: 
+        db.session.delete(user_to_delete)
+        db.session.commit()
+        flash("User has been deleted successfully.")
+    except:
+        flash("Invalid user ID.")
+    if id != 1:
+        return render_template("index.html")
+    flash("Sorry you must be the admin to load this page.")
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
