@@ -4,7 +4,8 @@
 
 </div>
 {% block content %}
-    <h1>Hi, {{current_user.username }}! Feel free to use the navigation menu to browse the site.</h1>
+    <h1 style= "position: relative;
+        bottom: -100px; left:10">Hi, {{current_user.username }}! Feel free to use the navigation menu to browse the site.</h1>
 {% endblock %}
 
 <!-- This is a test base for the graph until the page can be opened-->
@@ -31,7 +32,7 @@
           <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/content">Home</a>
+                <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/index">Home</a>
               <!-- Drop down menu-->
               <li class="nav-item dropdown">
                 <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,12 +45,7 @@
                   <div id="demo">
                     <li><a class="dropdown-item" href="http://127.0.0.1:5000/monthGraph" onclick="loadDoc()">Months Graph</a></li>
                   </div>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
               </li>
             </li>
             <li class="nav-item">
