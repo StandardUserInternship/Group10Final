@@ -57,7 +57,10 @@ def before_request():
 @app.route('/index')
 @login_required
 def home():
+    if not current_user.is_authenticated:
+        redirect(url_for('login'))
     return render_template('home.html', title='Home')
+        
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -114,7 +117,7 @@ def login():
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('home')
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
 
 
