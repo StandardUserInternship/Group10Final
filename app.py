@@ -13,6 +13,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from config import Config
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import plot, show
+from flask import render_template, jsonify
+import base64
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -132,6 +139,34 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign in')
+
+@app.route('/titanicGraph')
+@login_required
+def titanicGraph():
+    return render_template("titanicGraph.html")
+
+@app.route('/monthGraph')
+@login_required
+def monthGraph():
+    return render_template("monthGraph.html")
+
+# @app.route('/test2')    
+# def test2():
+#     plot(1)
+#     show(block=False)
+#     df = pd.read_csv("titanic.csv")
+#     df = df[['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
+#         'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked']]
+#     cor = df.corr()
+#     sns.heatmap(cor, annot=True, vmax=1, vmin=-1, center=0, cmap='vlag')
+#     plt.savefig('heatmap.png')
+
+#     data = {}
+#     with open('heatmap.png', mode='rb') as file:
+#         img = file.read()
+#     data['img'] = base64.encodebytes(img).decode()
+
+#     return jsonify(data['img'])
 
 
 if __name__ == "__main__":
