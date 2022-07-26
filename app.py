@@ -105,7 +105,7 @@ def login():
         User.last_seen.last_seen=datetime.utcnow
         db.session.add(User.last_seen)
         db.session.commit()
-        return redirect(url_for('/'))
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -117,7 +117,7 @@ def login():
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('home')
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     return render_template('login.html', title='Sign In', form=form)
 
 
