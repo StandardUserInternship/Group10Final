@@ -164,7 +164,7 @@ def monthGraph():
 #     data = {}
 #     with open('heatmap.png', mode='rb') as file:
 #         img = file.read()
-#     data['img'] = base64.encodebytes(img).decode()
+
 
 #     return jsonify(data['img'])
 
